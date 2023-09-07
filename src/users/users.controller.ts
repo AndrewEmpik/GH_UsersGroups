@@ -26,7 +26,7 @@ export class UsersController {
 		return this.usersService.findAll();
 	}
 
-	// [Users] CREATE: users/create
+	// [Users] CREATE: users/
 	@Post()
 	create(@Body() createUserDto: CreateUserDto) {
 		return this.usersService.create(createUserDto);
@@ -52,7 +52,7 @@ export class UsersController {
 		return this.usersService.findGroups();
 	}
 
-	// [Groups]  CREATE: users/groups/create
+	// [Groups]  CREATE: users/groups/
 	@Post('groups')
 	createGroup(@Body() createGroupDto: CreateGroupDto) {
 		return this.usersService.createGroup(createGroupDto);
@@ -76,7 +76,7 @@ export class UsersController {
 		return this.usersService.findInterests();
 	}
 
-	// [Interests]  CREATE: users/interests/create
+	// [Interests]  CREATE: users/interests/
 	@Post('interests')
 	createInterest(@Body() createInterestDto: CreateInterestDto) {
 		return this.usersService.createInterest(createInterestDto);

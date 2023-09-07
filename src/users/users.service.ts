@@ -25,7 +25,7 @@ export class UsersService {
 		return this.prisma.users.findMany({});
 	}
 
-	// [Users] CREATE: users/create
+	// [Users] CREATE: users/
 	create(createUserDto: CreateUserDto) {
 		return this.prisma.users.create({data: createUserDto });
 	}
@@ -50,12 +50,12 @@ export class UsersService {
 		return this.prisma.groups.findMany({});
 	}
 
-	// [Groups]  CREATE: users/groups/create
+	// [Groups]  CREATE: users/groups/
 	createGroup(createGroupDto: CreateGroupDto) {
 		return this.prisma.groups.create({data: createGroupDto });
 	}
 
-	// [Groups]  UPDATE: users/groups/:id/update
+	// [Groups]  UPDATE: users/groups/:id/
 	updateGroup(id: number, updateGroupDto: UpdateGroupDto) {
 		return this.prisma.groups.update({
 			where: { id },
@@ -63,7 +63,7 @@ export class UsersService {
 		});
 	}
 
-	// [Groups]  DELETE: users/groups/:id/remove
+	// [Groups]  DELETE: users/groups/:id/
 	removeGroup(id: number) {
 		return this.prisma.groups.delete({ where: {id}});
 	}
@@ -75,12 +75,12 @@ export class UsersService {
 		return this.prisma.interests.findMany({});
 	}
 
-	// [Interests]  CREATE: users/interests/create
+	// [Interests]  CREATE: users/interests/
 	createInterest(createInterestDto: CreateInterestDto) {
 		return this.prisma.interests.create({data: createInterestDto });
 	}
 
-	// [Interests]  UPDATE: users/interests/:id/update
+	// [Interests]  UPDATE: users/interests/:id/
 	updateInterest(id: number, updateInterestDto: UpdateInterestDto) {
 		return this.prisma.interests.update({
 			where: { id },
@@ -88,7 +88,7 @@ export class UsersService {
 		});
 	}
 
-	// [Interests]  DELETE: users/interests/:id/remove
+	// [Interests]  DELETE: users/interests/:id/
 	removeInterest(id: number) {
 		return this.prisma.interests.delete({ where: {id}});
 	}
@@ -103,7 +103,7 @@ export class UsersService {
 	// [UsersGroups]  CREATE: users/users_to_groups/create
 	// same as "addtogroup"
 
-	// [UsersGroups]  UPDATE: users/users_to_groups/:id/update
+	// [UsersGroups]  UPDATE: users/users_to_groups/:id/
 	updateUsersGroups(id: number, updateUsersGroupsDto: UpdateUsersGroupsDto) {
 		return this.prisma.usersGroups.update({
 			where: { id },
@@ -111,7 +111,7 @@ export class UsersService {
 		});
 	}
 
-	// [UsersGroups]  DELETE: users/users_to_groups/:id/remove
+	// [UsersGroups]  DELETE: users/users_to_groups/:id/
 	removeUsersGroups(id: number) {
 		return this.prisma.usersGroups.delete({ where: {id}});
 	}
