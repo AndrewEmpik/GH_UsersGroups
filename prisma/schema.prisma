@@ -8,27 +8,31 @@ datasource db {
 }
 
 model Users {
-  id       Int    @id @default(autoincrement())
-  name     String
-  interests Interests[]
+  id          Int           @id @default(autoincrement())
+  name        String
+  interests   Interests[]
+  UsersGroups UsersGroups[]
 }
 
 model Groups {
-  id    Int    @id @default(autoincrement())
-  title String
+  id          Int           @id @default(autoincrement())
+  title       String
   usersGroups UsersGroups[]
 }
 
 model Interests {
-  id    	Int    @id @default(autoincrement())
-  title 	String
-  user Users @relation(fields: [userid], references: [id])
-  userid	Int
+  id     Int    @id @default(autoincrement())
+  title  String
+  userid Int
+  user   Users  @relation(fields: [userid], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_USER_ID")
 }
 
 model UsersGroups {
-  id    	Int    @id @default(autoincrement())
-  userid	Int
-  group Groups @relation(fields: [groupid], references: [id])
-  groupid	Int
+  id      Int    @id @default(autoincrement())
+  userid  Int
+  groupid Int
+  group   Groups @relation(fields: [groupid], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_GROUP_ID")
+  Users   Users  @relation(fields: [userid], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_USER_ID")
+
+  @@unique([userid, groupid], map: "UK_USER_GROUP")
 }
